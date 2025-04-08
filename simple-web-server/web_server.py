@@ -9,7 +9,7 @@ class HelloWorldHandler(SimpleHTTPRequestHandler):
         self.end_headers()
 
         # Write the response body
-        self.wfile.write(b"Hello, World!")
+        self.wfile.write(b"Hello, World! version1")
 
 
 # Define the server address and port

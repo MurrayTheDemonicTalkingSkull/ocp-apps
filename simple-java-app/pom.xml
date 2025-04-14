@@ -48,7 +48,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.yourpackage.YourMainClass</mainClass>
+                            <mainClass>com.example.demo.DemoApplication</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

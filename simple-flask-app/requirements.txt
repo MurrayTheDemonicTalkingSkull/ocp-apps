@@ -1,0 +1,8 @@
+flask==2.3.3
+flask-cors==4.0.0           # For handling CORS
+flask-restful==0.3.10       # For building REST APIs easily
+flask-sqlalchemy==3.1.1     # For database integration with SQLAlchemy
+flask-migrate==4.0.5        # For managing database migrations
+flask-jwt-extended==4.6.0   # For JWT authentication
+gunicorn==21.2.0            # Recommended WSGI server for production
+python-dotenv==1.0.1        # Load environment variables from .env

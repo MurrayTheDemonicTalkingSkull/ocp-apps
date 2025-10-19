@@ -1,6 +1,6 @@
 # Extend the official httpd S2I builder image
 FROM registry.redhat.io/rhscl/httpd-24-rhel7:latest
-
+COPY .s2i/bin/ /usr/libexec/s2i/
 # Become root to install additional packages
 USER root
 

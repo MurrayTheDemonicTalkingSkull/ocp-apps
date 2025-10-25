@@ -1,0 +1,36 @@
+apiVersion: tekton.dev/v1
+kind: Pipeline
+metadata:
+  name: pipeline-with-workspace
+spec:
+  workspaces:
+    - name: pipeline-ws1 # Name of the workspace in the Pipeline
+  tasks:
+    - name: write-file
+      taskRef:
+        kind: Task
+        name: write-file-task
+      workspaces:
+      - name: pipeline-ws1
+        workspace: pipeline-ws1
+
+    - name: read-file
+      taskRef:
+        kind: Task
+        name: read-file-task
+      workspaces:
+        - name: pipeline-ws1
+          workspace: pipeline-ws1
+      runAfter:
+        - write-file
+
+    - name: remove-file
+      taskRef:
+        kind: Task
+        name: remove-file-task
+      workspaces:
+        - name: pipeline-ws1
+          workspace: pipeline-ws1
+      runAfter:
+        - read-file
+

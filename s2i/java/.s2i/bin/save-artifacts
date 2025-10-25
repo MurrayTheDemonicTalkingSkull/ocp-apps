@@ -1,0 +1,5 @@
+#!/bin/bash
+# Optional: cache Maven repo between builds
+if [ -d $HOME/.m2 ]; then
+  tar -czf - -C $HOME .m2
+fi

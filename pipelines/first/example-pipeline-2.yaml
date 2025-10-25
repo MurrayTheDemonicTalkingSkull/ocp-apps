@@ -1,0 +1,40 @@
+apiVersion: tekton.dev/v1
+kind: Pipeline
+metadata:
+  name: new-pipeline-2
+  namespace: pipelines-project
+spec:
+  tasks:
+    - name: this-is-the-first-task
+      taskRef:
+        kind: Task
+        name: example-task-1
+
+    - name: this-is-the-second-task
+      taskRef:
+        kind: Task
+        name: example-task-2
+      runAfter:
+      - this-is-the-first-task
+
+    - name: this-is-the-third-task
+      taskRef:
+        kind: Task
+        name: example-task-3
+      runAfter:
+        - this-is-the-second-task
+
+    - name: this-is-the-fourth-task
+      taskRef:
+        kind: Task
+        name: example-task-3
+      runAfter:
+        - this-is-the-second-task
+
+    - name: this-is-the-final-task
+      taskRef:
+        kind: Task
+        name: example-task-1
+      runAfter:
+        - this-is-the-third-task
+        - this-is-the-fourth-task

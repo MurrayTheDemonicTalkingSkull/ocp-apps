@@ -1,0 +1,8 @@
+#!/bin/bash -e
+# Copy source into container
+cp -Rf /tmp/src/* $HOME
+
+# Build Java app (Maven assumed)
+if [ -f "pom.xml" ]; then
+  mvn clean package -DskipTests
+fi

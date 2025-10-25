@@ -1,0 +1,10 @@
+apiVersion: tekton.dev/v1
+kind: Task
+metadata:
+  name: example-task-2
+spec:
+  steps:
+    - image: registry.access.redhat.com/ubi8/ubi:latest
+      script: |
+        #!/usr/bin/env bash
+        echo "Hello from task 2"

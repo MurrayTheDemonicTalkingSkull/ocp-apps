@@ -1,0 +1,2 @@
+#!/bin/bash
+echo "This is a custom S2I Java builder. Provide a Git repo with a Maven project (pom.xml)."

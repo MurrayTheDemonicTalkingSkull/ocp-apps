@@ -1,0 +1,22 @@
+apiVersion: tekton.dev/v1
+kind: Task
+metadata:
+  name: remove-file-task
+spec:
+  steps:
+    - name: remove-file
+      image: registry.access.redhat.com/ubi8/ubi:latest
+      script: |
+        #!/usr/bin/env bash
+        set -xe
+        if [ "$(workspaces.pipeline-ws1.bound)" == "true" ] ; then
+          rm $(workspaces.pipeline-ws1.path)/message;
+          ls -l $(workspaces.pipeline-ws1.path);
+        fi    
+  workspaces:
+    - name: pipeline-ws1
+      description: |
+        The folder where we write the message to. If no workspace
+        is provided then the message will not be written.
+      optional: true
+      mountPath: /uth

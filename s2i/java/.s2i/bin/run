@@ -1,0 +1,3 @@
+#!/bin/bash -e
+echo "Starting Java app on port ${PORT:-8080}"
+exec java -jar target/*.jar --server.port=${PORT:-8080}

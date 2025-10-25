@@ -1,0 +1,11 @@
+apiVersion: tekton.dev/v1
+kind: Pipeline
+metadata:
+  name: new-pipeline-1
+  namespace: pipelines-project
+spec:
+  tasks:
+    - name: this-is-the-first-task
+      taskRef:
+        kind: Task
+        name: example-task-1
